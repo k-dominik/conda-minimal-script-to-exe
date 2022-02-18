@@ -1,0 +1,14 @@
+package:
+  name: fortytwo
+  version: 1.0
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
