@@ -1,22 +1,3 @@
-{% if environ.get('SCRIPT_WITH_PY') %}
-{% set script_ext='py' %}
-{% else %}
-{% set script_ext='noext' %}
-{% endif %}
-
-{% if environ.get('USE_PIP') %}
-{% set using_pip='pip' %}
-{% else %}
-{% set using_pip='setup' %}
-{% endif %}
-
-{% if environ.get('USE_NOARCH') %}
-{% set use_noarch='arch' %}
-{% else %}
-{% set use_noarch='noarch' %}
-{% endif %}
-
-
 package:
   name: fortytwo
   version: 1.0
@@ -25,19 +6,19 @@ source:
   path: ..
 
 build:
-  {% if use_noarch=='noarch' %}
+  {% if BLD_TYPE=='noarch' %}
   noarch: python
   {% endif %}
 
-  string: {{ using_pip }}_{{ use_noarch }}_{{ script_ext }}
+  string: {{ BLD_WITH }}_{{ BLD_TYPE }}_{{ SCRIPT_WITH_PY }}
 
-  {% if using_pip=='setup' %}
+  {% if BLD_WITH=='setup' %}
   script: python setup.py install
   {% else %}
   script: python -m pip install --no-deps --ignore-installed .
   {% endif %}
 
-  {% if script_ext=='py' %}
+  {% if SCRIPT_WITH_PY=='py' %}
   script_env:
     - SCRIPT_WITH_PY
   {% endif %}
