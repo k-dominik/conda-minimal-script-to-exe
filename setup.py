@@ -1,7 +1,7 @@
 import os
 from distutils.core import setup
 
-scripts = ["./hello-you"] if os.environ.get("SCRIPT_WITH_PY") == "noext" else ["./hello-you.py"]
+scripts = ["./entry-script"] if os.environ.get("SCRIPT_WITH_PY") == "noext" else ["./entry-script.py"]
 
 
 setup(name='fortytwo',
