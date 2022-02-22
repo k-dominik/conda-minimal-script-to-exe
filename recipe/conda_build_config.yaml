@@ -1,0 +1,11 @@
+SCRIPT_WITH_PY:
+  - py
+  - noext
+
+BLD_WITH:
+  - setup
+  - pip
+
+BLD_TYPE:
+  - noarch
+  - arch
