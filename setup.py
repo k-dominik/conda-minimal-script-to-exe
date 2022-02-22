@@ -1,11 +1,12 @@
 import os
 from distutils.core import setup
 
-scritps = ["hello_you"] if not os.environ.get("SCRIPT_WITH_PY") else ["hello_you.py"]
+scripts = ["./hello-you"] if os.environ.get("SCRIPT_WITH_PY") == "noext" else ["./hello-you.py"]
 
 
 setup(name='fortytwo',
       version='1.0',
       packages=["fortytwo"],
+      entry_points={"console_scripts": ["fortytwo-ep = fortytwo.__init__:entry"]},
       scripts=scripts
 )

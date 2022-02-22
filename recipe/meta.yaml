@@ -11,7 +11,8 @@ build:
   {% endif %}
 
   string: {{ BLD_WITH }}_{{ BLD_TYPE }}_{{ SCRIPT_WITH_PY }}
-
+  entry_points:
+    - fortytwo-ep = fortytwo.__init__:entry
   {% if BLD_WITH=='setup' %}
   script: python setup.py install
   {% else %}
